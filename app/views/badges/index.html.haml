@@ -1,0 +1,13 @@
+%h2 Treehouse Badges
+= @treehouse["name"]
+%h4 Points #{@treehouse["points"]["total"]}
+
+- @treehouse["points"].each do |k, v|
+  = k
+  = v
+  
+%hr
+
+- @treehouse["badges"].each do |badge|
+  = badge["name"]
+  = image_tag badge["icon_url"], size: "30"
