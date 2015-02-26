@@ -1,0 +1,13 @@
+class Codeschool
+  include HTTParty
+
+  def self.response
+    user = "ashlynnpai"
+    api_url = "https://www.codeschool.com/users/#{user}.json"
+    HTTParty.get(api_url)
+  end
+  
+  def self.stuntdouble
+    {"user"=>{"username"=>"testuser", "member_since"=>"2014-03-17T21:08:40Z", "total_score"=>180435, "avatar"=>"http://gravatar.com/avatar/9a8db789bdb6c71c75ab49969d9a1962.jpg?s=80&r=pg"}, "courses"=>{"completed"=>[{"title"=>"Rails for Zombies 2", "url"=>"http://www.codeschool.com/courses/rails-for-zombies-2", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/5/rails-for-zombies-2-590765e03b81ef9c6899b755ecc6c56e.png"}, {"title"=>"Testing with RSpec", "url"=>"http://www.codeschool.com/courses/testing-with-rspec", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/14/testing-with-rspec-28aac9e9dc98d373f4bce659214c5b3a.png"}, {"title"=>"Try Git", "url"=>"http://www.codeschool.com/courses/try-git", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/19/try-git-1d5111823aae2bb9d14fbcb663998353.png"}, {"title"=>"Real-time Web with Node.js", "url"=>"http://www.codeschool.com/courses/real-time-web-with-node-js", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/15/real-time-web-with-node-js-88e5c4091e8a920f7d29402c5d60d8a8.png"}, {"title"=>"Rails for Zombies Redux", "url"=>"http://www.codeschool.com/courses/rails-for-zombies-redux", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/18/rails-for-zombies-redux-cb1011b0ed5f8bb98c97e8e97d7faa3e.png"}, {"title"=>"Ruby Bits", "url"=>"http://www.codeschool.com/courses/ruby-bits", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/20/ruby-bits-925de89ab10eeeb27330ae7683c0aec0.png"}, {"title"=>"JavaScript Best Practices", "url"=>"http://www.codeschool.com/courses/javascript-best-practices", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/113/javascript-best-practices-320e73d2694215bc24264e74a2f76528.png"}, {"title"=>"jQuery: The Return Flight", "url"=>"http://www.codeschool.com/courses/jquery-the-return-flight", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/98/jquery-the-return-flight-6bf0a32c22a6804cc007ee71308a5afd.png"}, {"title"=>"Fundamentals of Design", "url"=>"http://www.codeschool.com/courses/fundamentals-of-design", "badge"=>"https://d1ffx7ull4987f.cloudfront.net/images/courses/large_badge/99/fundamentals-of-design-f6939f1a28ee35c6542eb813fe763d36.png"}, {"name"=>"Completed JavaScript Best Practices"}]}}
+   end
+end

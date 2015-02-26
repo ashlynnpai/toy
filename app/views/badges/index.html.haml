@@ -1,5 +1,19 @@
+%h2 Codeschool
+
+%h4= @codeschool["user"]["username"]
+%h4 Points #{@codeschool["user"]["total_score"]}
+= @codeschool["user"]["total_score"]
+
+%hr
+
+- @codeschool["courses"]["completed"].each do |course|
+  = course["title"]
+  = image_tag course["badge"], size: "100"
+
+%hr
+
 %h2 Treehouse Badges
-= @treehouse["name"]
+%h4= @treehouse["name"]
 %h4 Points #{@treehouse["points"]["total"]}
 
 - @treehouse["points"].each do |k, v|
@@ -10,4 +24,4 @@
 
 - @treehouse["badges"].each do |badge|
   = badge["name"]
-  = image_tag badge["icon_url"], size: "30"
+  = image_tag badge["icon_url"], size: "100"

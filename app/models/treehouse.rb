@@ -3,7 +3,6 @@ class Treehouse
 
   def self.response
     user = "username"
-    "http://teamtreehouse.com/" + user + ".json"
     api_url = "http://teamtreehouse.com/#{user}.json"
     HTTParty.get(api_url)
   end
