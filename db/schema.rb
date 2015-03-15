@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20150305010325) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
-    t.string   "state"
-    t.string   "region"
+    t.string   "size"
+    t.decimal  "composite",    precision: 4, scale: 1
+    t.decimal  "grocery",      precision: 4, scale: 1
+    t.decimal  "housing",      precision: 4, scale: 1
+    t.integer  "population"
+    t.decimal  "unemployment", precision: 3, scale: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
