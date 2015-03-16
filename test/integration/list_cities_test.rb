@@ -14,7 +14,7 @@ class ListCitiesTest < ActionDispatch::IntegrationTest
     Reno = City.create!(name: 'Reno', size: 'medium')
     Aspen = City.create!(name: 'Aspen', size: 'small')
     
-    get '/cities?size=medium'
+    get '/cities?size=medium&format=json'
     assert_equal 200, response.status
     
     cities = JSON.parse(response.body, symbolize_names: true)
@@ -24,12 +24,12 @@ class ListCitiesTest < ActionDispatch::IntegrationTest
   end
   
   test 'returns city by id' do
-    city = City.create!(name: 'Paris', size: 'large')
+    city = City.create!(name: 'Paris')
     
-    get "/cities/#{city.id}"
+    get "/cities/#{city.id}", {}, { 'Accept' => Mime::JSON }   
     assert_equal 200, response.status
 
 		city_response = JSON.parse(response.body, symbolize_names: true)
-    assert_equal city.name, city_response[:size]    
+    assert_equal city.name, city_response[:name]
   end
 end
