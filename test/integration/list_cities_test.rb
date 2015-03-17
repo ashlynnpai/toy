@@ -7,6 +7,12 @@ class ListCitiesTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
   end
+  
+  test 'returns cities in XML' do
+    get '/cities', {}, { 'Accept' => Mime::XML }  
+    assert_equal 200, response.status
+    assert_equal Mime::XML, response.content_type
+  end
 
   test 'returns a list of cities by size' do
     
