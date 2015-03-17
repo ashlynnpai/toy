@@ -12,16 +12,15 @@ class Api::CitiesController < ApplicationController
   
   def create
     city = City.new(city_params)
-    respond_to do |format|
     if city.save
-      #format.json { render json: city, status: :created, location: [:api,city] } 
-      head 204, location: city
-    end
+      render json: city, status: 201, location: [:api,city]
+    else
+      render json: city.errors, status: 422
     end
   end
 
   def show
-    city = City.find(params[:id])
+    city = City.find_available(params[:id])
     respond_to do |format|
       format.json { render json: city, status: 200 }
     end
@@ -32,6 +31,12 @@ class Api::CitiesController < ApplicationController
 		if city.update(city_params)
 		  render json: city, status: 200
 		end
+  end
+  
+  def destroy
+    city = City.find_available(params[:id])
+    city.archive
+    head 204
   end
   
   private 
