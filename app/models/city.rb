@@ -7,6 +7,6 @@ class City < ActiveRecord::Base
   
   def archive
     self.available = false
-		self.save
+    self.save
   end
 end

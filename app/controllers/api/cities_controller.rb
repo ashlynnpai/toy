@@ -28,9 +28,9 @@ class Api::CitiesController < ApplicationController
   
   def update
     city = City.find(params[:id])
-		if city.update(city_params)
-		  render json: city, status: 200
-		end
+      if city.update(city_params)
+      render json: city, status: 200
+    end
   end
   
   def destroy
