@@ -2,9 +2,11 @@ class Treehouse
   include HTTParty
 
   def self.response
-    user = "username"
+    user = "ashlynnpai"
     api_url = "http://teamtreehouse.com/#{user}.json"
-    HTTParty.get(api_url)
+    Rails.cache.fetch(api_url, :expires => 3.days) do
+      HTTParty.get(api_url)
+    end
   end
   
   def self.stuntdouble

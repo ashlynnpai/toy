@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'bcrypt-ruby'
 gem 'figaro'
 gem 'httparty'
+gem 'dalli'
 
 
 group :development do

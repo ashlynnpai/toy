@@ -3,7 +3,9 @@ class Coursera
 
   def self.response_courselist
     api_url = "https://api.coursera.org/api/catalog.v1/courses?fields=instructor,shortDescription"
-    HTTParty.get(api_url)
+    Rails.cache.fetch(api_url, :expires => 3.days) do
+      HTTParty.get(api_url)
+    end
   end
   
   def self.stuntdouble
