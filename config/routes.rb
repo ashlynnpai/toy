@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :cities
   end
   
-  resources :books, only: :index
+  resources :books
+
   resources :finished_books
 end

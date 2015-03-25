@@ -8,6 +8,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def json(body)
-    JSON.parse(body)
+    JSON.parse(body, symbolize_names: true)
+    #symbolize_names turns key to symbol
   end
 end
