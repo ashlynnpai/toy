@@ -1,8 +1,8 @@
 #rake test test/integration/listing_finished_books_test.rb
 class ListingFinishedBooksTest < ActionDispatch::IntegrationTest
   setup do
-    Book.create!(title: 'Finished', finished_at: 1.day.ago)
-    Book.create!(title: 'Not Finished', finished_at: nil)
+    Book.create!(title: 'Finished', finished_on: 1.day.ago)
+    Book.create!(title: 'Not Finished', finished_on: nil)
   end
   test 'lists finished books in JSON' do
     get '/finished_books', {}, { 'Accept' => 'application/json'}
