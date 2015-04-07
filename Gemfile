@@ -15,6 +15,7 @@ gem 'bcrypt-ruby'
 gem 'figaro'
 gem 'httparty'
 gem 'dalli'
+gem 'omniauth-facebook'
 
 
 group :development do

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'books#index'
+  root to: 'badges#index'
   
   get '/badges', to: 'badges#index'
   get '/courses', to: 'courses#index'
@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :books
 
   resources :finished_books
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 end
