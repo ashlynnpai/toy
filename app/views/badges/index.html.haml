@@ -1,39 +1,41 @@
-%section.container
+%section.container.landing
+  .row
+    %h2 Codeschool
 
-%h2 Codeschool
+    %h4= @codeschool["user"]["username"]
+    %h4 Points #{@codeschool["user"]["total_score"]}
+    = @codeschool["user"]["total_score"]
 
-%h4= @codeschool["user"]["username"]
-%h4 Points #{@codeschool["user"]["total_score"]}
-= @codeschool["user"]["total_score"]
+    %hr
 
-%hr
+    - @codeschool["courses"]["completed"].each do |course|
+      = course["title"]
+      = image_tag course["badge"], size: "100"
 
-- @codeschool["courses"]["completed"].each do |course|
-  = course["title"]
-  = image_tag course["badge"], size: "100"
+    %hr
 
-%hr
+  .row
+    %h2 Treehouse Badges
+    %h4= @treehouse["name"]
+    %h4 Points #{@treehouse["points"]["total"]}
 
-%h2 Treehouse Badges
-%h4= @treehouse["name"]
-%h4 Points #{@treehouse["points"]["total"]}
+    - @treehouse["points"].each do |k, v|
+      = k
+      = v
 
-- @treehouse["points"].each do |k, v|
-  = k
-  = v
-  
-%hr
+    %hr
 
-- @treehouse["badges"].each do |badge|
-  = badge["name"]
-  = image_tag badge["icon_url"], size: "100"
-  
-%h2 Codewars
-%h4 Javascript Kata Completed #{@codewars_javascript}
-%h4 Latest Katas
-- @katas.each do |kata|
-  %h4= kata
-  %hr
+    - @treehouse["badges"].each do |badge|
+      = badge["name"]
+      = image_tag badge["icon_url"], size: "100"
 
--#- @codewars["data"].each do |item|
-  = item["name"]
+  .row
+    %h2 Codewars
+    %h4 Javascript Kata Completed #{@codewars_javascript}
+    %h4 Latest Katas
+    - @katas.each do |kata|
+      %h4= kata
+      %hr
+
+    -#- @codewars["data"].each do |item|
+      = item["name"]
