@@ -4,9 +4,18 @@ class Treehouse
   def self.response
     user = "ashlynnpai"
     api_url = "http://teamtreehouse.com/#{user}.json"
+#     unable to serialize HTTParty responses for caching
+#     no _dump_data is defined for class Proc
+#     https://github.com/jnunemaker/httparty/issues/143  
 #     Rails.cache.fetch(api_url, :expires => 3.days) do
 #       HTTParty.get(api_url)
 #     end
+      Rails.cache.fetch(api_url, :expires => 3.days) do
+        parsed_response = HTTParty.get(api_url)
+        if parsed_response.success?
+          parsed_response.body
+        end
+      end
   end
   
   def self.stuntdouble
