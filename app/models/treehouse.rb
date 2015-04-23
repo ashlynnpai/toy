@@ -10,12 +10,19 @@ class Treehouse
 #     Rails.cache.fetch(api_url, :expires => 3.days) do
 #       HTTParty.get(api_url)
 #     end
+    
+    
       Rails.cache.fetch(api_url, :expires => 3.days) do
-        parsed_response = HTTParty.get(api_url)
-        if parsed_response.success?
-          parsed_response.body
+        my_response = HTTParty.get(api_url)
+        if my_response.success?
+          #back to json format
+          my_response.body
         end
+        #parsed_response = JSON.parse(my_response.body)
       end
+#    HTTParty.get(api_url)
+    
+    
   end
   
   def self.stuntdouble

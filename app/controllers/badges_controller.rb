@@ -10,4 +10,9 @@ class BadgesController < ApplicationController
     @codewars_javascript = Codewars.language_parse(@codewars, "javascript")
     @katas = Codewars.latest(@codewars, 10)
   end
+  
+  def test
+    @treehouse_api = JSON.parse(Treehouse.response)
+    #@codeschool_api = Codeschool.response
+  end
 end

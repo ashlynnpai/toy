@@ -1,0 +1,15 @@
+.row
+  %h2 Treehouse Badges
+  %h4= @treehouse_api["name"]
+  %h4 Points #{@treehouse_api["points"]["total"]}
+
+  - @treehouse_api["points"].each do |k, v|
+    = k
+    = v
+
+  %hr
+
+
+  - @treehouse_api["badges"].each do |badge|
+    %p= image_tag badge["icon_url"], size: "100"  
+    %p= badge["name"]

@@ -25,9 +25,10 @@
 
     %hr
 
+
     - @treehouse["badges"].each do |badge|
-      = badge["name"]
-      = image_tag badge["icon_url"], size: "100"
+      %p= image_tag badge["icon_url"], size: "100"  
+      %p= badge["name"]
 
   .row
     %h2 Codewars
@@ -39,6 +40,8 @@
 
     -#- @codewars["data"].each do |item|
       = item["name"]
+      
+    
 
 
     

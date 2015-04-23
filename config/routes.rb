@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'badges#index'
+  root to: 'badges#test'
   
   get '/badges', to: 'badges#index'
   get '/courses', to: 'courses#index'
