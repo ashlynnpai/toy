@@ -22,7 +22,10 @@ class Treehouse
       end
 #    HTTParty.get(api_url)
     
-    
+  end
+  
+  def self.parse_response
+    JSON.parse(self.response)
   end
   
   def self.stuntdouble

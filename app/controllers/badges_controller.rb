@@ -12,7 +12,8 @@ class BadgesController < ApplicationController
   end
   
   def test
-    @treehouse_api = JSON.parse(Treehouse.response)
+    #@treehouse_api = JSON.parse(Treehouse.response)
+    @treehouse_api = Treehouse.parse_response
     #@codeschool_api = Codeschool.response
   end
 end
